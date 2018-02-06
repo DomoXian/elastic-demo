@@ -1,0 +1,111 @@
+package ${managerImplPackage};
+
+import ${mainPackage}.common.PageResult;
+import ${doPackage}.${className}${doSuffix};
+import ${queryPackage}.${className}${queryPrefix};
+import ${mapperExtPackage}.${className}${extMapperSuffix};
+import ${managerPackage}.${className}${managerSuffix};
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.util.List;
+
+
+/**
+ * Manager for ${className}.
+ */
+
+@Component
+public class ${className}${managerImplSuffix} implements ${className}${managerSuffix}{
+
+    #set($managerMapperName= ${mapperPropertyName})
+
+    @Autowired
+    protected ${className}${extMapperSuffix} ${managerMapperName};
+    /**
+     * query count by query condition.
+     */
+    @Override
+    public int countBy${queryPrefix}(${className}${queryPrefix} ${queryPrefix.toLowerCase()}){
+        return ${managerMapperName}.countBy${queryPrefix}(${queryPrefix.toLowerCase()});
+    }
+
+    /**
+     * delete by query condition.
+     */
+    @Override
+    public int deleteBy${queryPrefix}(${className}${queryPrefix} ${queryPrefix.toLowerCase()}){
+        return ${managerMapperName}.deleteBy${queryPrefix}(${queryPrefix.toLowerCase()});
+    }
+
+    /**
+     * delete by primary key.
+     */
+    @Override
+    public int deleteByPrimaryKey(${className}${doSuffix} record){
+        return ${managerMapperName}.deleteByPrimaryKey(record);
+    }
+
+    /**
+     * insert selective.
+     */
+    @Override
+    public long insertSelective(${className}${doSuffix} record){
+        return ${managerMapperName}.insertSelective(record);
+    }
+
+    /**
+     * select by query condition.
+     */
+    @Override
+    public List<${className}${doSuffix}> selectBy${queryPrefix}(${className}${queryPrefix} ${queryPrefix.toLowerCase()}){
+        return ${managerMapperName}.selectBy${queryPrefix}(${queryPrefix.toLowerCase()});
+    }
+
+    /**
+     * select by query condition with page.
+    */
+    @Override
+    public PageResult<${className}${doSuffix}> selectBy${queryPrefix}WithPage(${className}${queryPrefix} ${queryPrefix.toLowerCase()}) {
+        PageResult<${className}${doSuffix}> result = new PageResult<${className}${doSuffix}>();
+        result.setPageSize(query.getPageSize());
+        result.setPageNo(query.getPageNo());
+        result.setTotalCount(this.countBy${queryPrefix}(${queryPrefix.toLowerCase()}));
+        result.setResult(this.selectBy${queryPrefix}(${queryPrefix.toLowerCase()}));
+        return result;
+    }
+
+    /**
+     * select by primary key.
+     */
+    @Override
+    public ${className}${doSuffix} selectByPrimaryKey(Long id){
+        return ${managerMapperName}.selectByPrimaryKey(id);
+    }
+
+    /**
+     * update by query condition selective.
+     */
+    @Override
+    public int updateBy${queryPrefix}Selective( ${className}${doSuffix} record,  ${className}${queryPrefix} ${queryPrefix.toLowerCase()}){
+        return ${managerMapperName}.updateBy${queryPrefix}Selective(record,  ${queryPrefix.toLowerCase()});
+    }
+
+    /**
+     * update by query condition.
+     */
+    @Override
+    public int updateBy${queryPrefix}( ${className}${doSuffix} record,  ${className}${queryPrefix} ${queryPrefix.toLowerCase()}){
+
+        return ${managerMapperName}.updateBy${queryPrefix}(record, ${queryPrefix.toLowerCase()});
+    }
+
+    /**
+     * update by primary key selective.
+     */
+    @Override
+    public int updateByPrimaryKeySelective(${className}${doSuffix} record){
+        return ${managerMapperName}.updateByPrimaryKeySelective(record);
+    }
+}

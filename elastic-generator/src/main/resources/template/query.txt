@@ -1,0 +1,320 @@
+package ${queryPackage};
+
+
+import ${mainPackage}.common.BaseCriteria;
+import ${mainPackage}.common.BaseQuery;
+import org.apache.commons.lang.builder.ReflectionToStringBuilder;
+import org.apache.commons.lang.builder.ToStringStyle;
+
+import java.io.Serializable;
+
+import java.util.Date;
+import java.util.List;
+
+public class ${className}${queryPrefix} extends BaseQuery implements Serializable {
+    private static final long serialVersionUID = 1L;
+
+    public ${className}${queryPrefix}() {
+        super();
+    }
+
+    public Criteria or() {
+        Criteria criteria = createCriteriaInternal();
+        super.oredCriteria.add(criteria);
+        return criteria;
+    }
+
+    public Criteria createCriteria() {
+        Criteria criteria = createCriteriaInternal();
+        if (oredCriteria.size() == 0) {
+            oredCriteria.add(criteria);
+        }
+        return criteria;
+    }
+
+    protected Criteria createCriteriaInternal() {
+        Criteria criteria = new Criteria();
+        return criteria;
+    }
+
+    /**
+     * This class corresponds to the database table ${tableName}
+     */
+     #set($propPrimaryKey=$propPrimaryKey.substring(0, 1).toUpperCase() + $propPrimaryKey.substring(1))
+    protected abstract static class GeneratedCriteria extends BaseCriteria {
+
+        protected GeneratedCriteria() {
+            super();
+        }
+
+        public Criteria and${propPrimaryKey}IsNull() {
+            addCriterion("${primaryKey} is null");
+            return (Criteria) this;
+        }
+
+        public Criteria and${propPrimaryKey}IsNotNull() {
+            addCriterion("${primaryKey} is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria and${propPrimaryKey}EqualTo(Long value) {
+            addCriterion("${primaryKey} =", value, "id");
+            return (Criteria) this;
+        }
+
+        public Criteria and${propPrimaryKey}NotEqualTo(Long value) {
+            addCriterion("${primaryKey} <>", value, "id");
+            return (Criteria) this;
+        }
+
+        public Criteria an${propPrimaryKey}GreaterThan(Long value) {
+            addCriterion("${primaryKey} >", value, "id");
+            return (Criteria) this;
+        }
+
+        public Criteria and${propPrimaryKey}GreaterThanOrEqualTo(Long value) {
+            addCriterion("${primaryKey} >=", value, "id");
+            return (Criteria) this;
+        }
+
+        public Criteria and${propPrimaryKey}LessThan(Long value) {
+            addCriterion("${primaryKey} <", value, "id");
+            return (Criteria) this;
+        }
+
+        public Criteria and${propPrimaryKey}LessThanOrEqualTo(Long value) {
+            addCriterion("${primaryKey} <=", value, "id");
+            return (Criteria) this;
+        }
+
+        public Criteria and${propPrimaryKey}In(List<Long> values) {
+            addCriterion("${primaryKey} in", values, "id");
+            return (Criteria) this;
+        }
+
+        public Criteria and${propPrimaryKey}NotIn(List<Long> values) {
+            addCriterion("${primaryKey} not in", values, "id");
+            return (Criteria) this;
+        }
+
+        public Criteria and${propPrimaryKey}Between(Long value1, Long value2) {
+            addCriterion("${primaryKey} between", value1, value2, "id");
+            return (Criteria) this;
+        }
+
+        public Criteria and${propPrimaryKey}NotBetween(Long value1, Long value2) {
+            addCriterion("${primaryKey} not between", value1, value2, "id");
+            return (Criteria) this;
+        }
+
+        public Criteria andGmtCreateIsNull() {
+            addCriterion("gmt_create is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGmtCreateIsNotNull() {
+            addCriterion("gmt_create is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGmtCreateEqualTo(Date value) {
+            addCriterion("gmt_create =", value, "gmtCreate");
+            return (Criteria) this;
+        }
+
+        public Criteria andGmtCreateNotEqualTo(Date value) {
+            addCriterion("gmt_create <>", value, "gmtCreate");
+            return (Criteria) this;
+        }
+
+        public Criteria andGmtCreateGreaterThan(Date value) {
+            addCriterion("gmt_create >", value, "gmtCreate");
+            return (Criteria) this;
+        }
+
+        public Criteria andGmtCreateGreaterThanOrEqualTo(Date value) {
+            addCriterion("gmt_create >=", value, "gmtCreate");
+            return (Criteria) this;
+        }
+
+        public Criteria andGmtCreateLessThan(Date value) {
+            addCriterion("gmt_create <", value, "gmtCreate");
+            return (Criteria) this;
+        }
+
+        public Criteria andGmtCreateLessThanOrEqualTo(Date value) {
+            addCriterion("gmt_create <=", value, "gmtCreate");
+            return (Criteria) this;
+        }
+
+        public Criteria andGmtCreateIn(List<Date> values) {
+            addCriterion("gmt_create in", values, "gmtCreate");
+            return (Criteria) this;
+        }
+
+        public Criteria andGmtCreateNotIn(List<Date> values) {
+            addCriterion("gmt_create not in", values, "gmtCreate");
+            return (Criteria) this;
+        }
+
+        public Criteria andGmtCreateBetween(Date value1, Date value2) {
+            addCriterion("gmt_create between", value1, value2, "gmtCreate");
+            return (Criteria) this;
+        }
+
+        public Criteria andGmtCreateNotBetween(Date value1, Date value2) {
+            addCriterion("gmt_create not between", value1, value2, "gmtCreate");
+            return (Criteria) this;
+        }
+
+        public Criteria andGmtModifiedIsNull() {
+            addCriterion("gmt_modified is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGmtModifiedIsNotNull() {
+            addCriterion("gmt_modified is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGmtModifiedEqualTo(Date value) {
+            addCriterion("gmt_modified =", value, "gmtModified");
+            return (Criteria) this;
+        }
+
+        public Criteria andGmtModifiedNotEqualTo(Date value) {
+            addCriterion("gmt_modified <>", value, "gmtModified");
+            return (Criteria) this;
+        }
+
+        public Criteria andGmtModifiedGreaterThan(Date value) {
+            addCriterion("gmt_modified >", value, "gmtModified");
+            return (Criteria) this;
+        }
+
+        public Criteria andGmtModifiedGreaterThanOrEqualTo(Date value) {
+            addCriterion("gmt_modified >=", value, "gmtModified");
+            return (Criteria) this;
+        }
+
+        public Criteria andGmtModifiedLessThan(Date value) {
+            addCriterion("gmt_modified <", value, "gmtModified");
+            return (Criteria) this;
+        }
+
+        public Criteria andGmtModifiedLessThanOrEqualTo(Date value) {
+            addCriterion("gmt_modified <=", value, "gmtModified");
+            return (Criteria) this;
+        }
+
+        public Criteria andGmtModifiedIn(List<Date> values) {
+            addCriterion("gmt_modified in", values, "gmtModified");
+            return (Criteria) this;
+        }
+
+        public Criteria andGmtModifiedNotIn(List<Date> values) {
+            addCriterion("gmt_modified not in", values, "gmtModified");
+            return (Criteria) this;
+        }
+
+        public Criteria andGmtModifiedBetween(Date value1, Date value2) {
+            addCriterion("gmt_modified between", value1, value2, "gmtModified");
+            return (Criteria) this;
+        }
+
+        public Criteria andGmtModifiedNotBetween(Date value1, Date value2) {
+            addCriterion("gmt_modified not between", value1, value2, "gmtModified");
+            return (Criteria) this;
+        }
+
+#foreach($item in $list)
+#set($colName=$item.propName.substring(0, 1).toUpperCase() + $item.propName.substring(1))
+        public Criteria and${colName}IsNull() {
+            addCriterion("${item.columnName} is null");
+            return (Criteria) this;
+        }
+
+        public Criteria and${colName}IsNotNull() {
+            addCriterion("${item.columnName} is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria and${colName}EqualTo(${item.javaType} value) {
+            addCriterion("${item.columnName} =", value, "${item.propName}");
+            return (Criteria) this;
+        }
+
+        public Criteria and${colName}NotEqualTo(${item.javaType} value) {
+            addCriterion("${item.columnName} <>", value, "${item.propName}");
+            return (Criteria) this;
+        }
+
+        public Criteria and${colName}GreaterThan(${item.javaType} value) {
+            addCriterion("${item.columnName} >", value, "${item.propName}");
+            return (Criteria) this;
+        }
+
+        public Criteria and${colName}GreaterThanOrEqualTo(${item.javaType} value) {
+            addCriterion("${item.columnName} >=", value, "${item.propName}");
+            return (Criteria) this;
+        }
+
+        public Criteria and${colName}LessThan(${item.javaType} value) {
+            addCriterion("${item.columnName} <", value, "${item.propName}");
+            return (Criteria) this;
+        }
+
+        public Criteria and${colName}LessThanOrEqualTo(${item.javaType} value) {
+            addCriterion("${item.columnName} <=", value, "${item.propName}");
+            return (Criteria) this;
+        }
+
+        public Criteria and${colName}Like(${item.javaType} value) {
+            addCriterion("${item.columnName} like", value, "${item.propName}");
+            return (Criteria) this;
+        }
+
+        public Criteria and${colName}NotLike(${item.javaType} value) {
+            addCriterion("${item.columnName} not like", value, "${item.propName}");
+            return (Criteria) this;
+        }
+
+        public Criteria and${colName}In(List<${item.javaType}> values) {
+            addCriterion("${item.columnName} in", values, "${item.propName}");
+            return (Criteria) this;
+        }
+
+        public Criteria and${colName}NotIn(List<${item.javaType}> values) {
+            addCriterion("${item.columnName} not in", values, "${item.propName}");
+            return (Criteria) this;
+        }
+
+        public Criteria and${colName}Between(${item.javaType} value1, ${item.javaType} value2) {
+            addCriterion("${item.columnName} between", value1, value2, "${item.propName}");
+            return (Criteria) this;
+        }
+
+        public Criteria and${colName}NotBetween(${item.javaType} value1, ${item.javaType} value2) {
+            addCriterion("${item.columnName} not between", value1, value2, "${item.propName}");
+            return (Criteria) this;
+        }
+
+#end
+    }
+
+    /**
+     * This class corresponds to the database table ${tableName}
+    */
+    public  static class Criteria extends GeneratedCriteria{
+        protected Criteria() {
+            super();
+        }
+    }
+
+
+
+    @Override
+    public String toString(){
+        return ReflectionToStringBuilder.toString(this, ToStringStyle.DEFAULT_STYLE);
+    }
+}

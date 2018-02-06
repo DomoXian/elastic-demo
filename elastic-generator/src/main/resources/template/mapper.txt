@@ -1,0 +1,61 @@
+package ${mapperPackage};
+
+import ${doPackage}.${className}${doSuffix};
+import ${queryPackage}.${className}${queryPrefix};
+
+import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
+/**
+ * MyBatis Mapper for ${className}.
+ */
+ @Mapper
+ @Repository
+public interface ${className}${mapperSuffix} {
+    /**
+     * query count by query condition.
+     */
+    int countBy${queryPrefix}(${className}${queryPrefix} ${queryPrefix.toLowerCase()});
+
+    /**
+     * delete by query condition.
+     */
+    int deleteBy${queryPrefix}(${className}${queryPrefix} ${queryPrefix.toLowerCase()});
+
+    /**
+     * delete by primary key.
+     */
+    int deleteByPrimaryKey(${className}${doSuffix} record);
+
+    /**
+     * insert selective.
+     */
+    int insertSelective(${className}${doSuffix} record);
+
+    /**
+     * select by query condition.
+     */
+    List<${className}${doSuffix}> selectBy${queryPrefix}(${className}${queryPrefix} ${queryPrefix.toLowerCase()});
+
+    /**
+     * select by primary key.
+     */
+    ${className}${doSuffix} selectByPrimaryKey(Long id);
+
+    /**
+     * update by query condition selective.
+     */
+    int updateBy${queryPrefix}Selective(@Param("record") ${className}${doSuffix} record, @Param("${queryPrefix.toLowerCase()}") ${className}${queryPrefix} ${queryPrefix.toLowerCase()});
+
+    /**
+     * update by query condition.
+     */
+    int updateBy${queryPrefix}(@Param("record") ${className}${doSuffix} record, @Param("${queryPrefix.toLowerCase()}") ${className}${queryPrefix} ${queryPrefix.toLowerCase()});
+
+    /**
+     * update by primary key selective.
+     */
+    int updateByPrimaryKeySelective(${className}${doSuffix} record);
+}
