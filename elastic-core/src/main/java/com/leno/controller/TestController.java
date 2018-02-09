@@ -3,16 +3,13 @@ package com.leno.controller;
 import com.leno.elastic.dal.model.UserDO;
 import com.leno.elastic.dal.query.UserQuery;
 import com.leno.elastic.manager.UserManager;
-import com.leno.search.base.SimpleESEntity;
-import com.leno.search.base.SimpleSearchClient;
-import com.leno.search.entity.UserESEntity;
+import com.leno.search.common.SimpleSearchClient;
+import org.elasticsearch.action.search.SearchRequest;
 import org.elasticsearch.index.query.QueryBuilders;
-import org.springframework.beans.BeanUtils;
+import org.elasticsearch.search.builder.SearchSourceBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 /**
  * <p>TODO</p>
@@ -28,8 +25,7 @@ public class TestController {
 
 
     @Autowired
-    private SimpleSearchClient<UserESEntity> simpleSearchClient;
-
+    private SimpleSearchClient simpleSearchClient;
 
     @GetMapping("/getUserList.json")
     public Object getUserList() {
@@ -38,22 +34,15 @@ public class TestController {
         return userManager.selectByQuery(userQuery);
     }
 
-    @GetMapping("saveElasticData.json")
-    public Object saveElastic() {
-        UserQuery userQuery = new UserQuery();
-        userQuery.createCriteria().andStatusEqualTo(0);
-        List<UserDO> userDOList = userManager.selectByQuery(userQuery);
-        for (UserDO item : userDOList) {
-            UserESEntity userESEntity = new UserESEntity();
-            BeanUtils.copyProperties(item, userESEntity);
-            simpleSearchClient.save(userESEntity);
-        }
-        return "插入成功";
-    }
-
     @GetMapping("search.json")
     public Object search() {
 
-        return simpleSearchClient.search(QueryBuilders.matchQuery("userName", "张三"), new SimpleESEntity("moyu_db", null, null));
+        SearchRequest request = new SearchRequest();
+        request.indices("moyu_index2");
+        SearchSourceBuilder sourceBuilder = new SearchSourceBuilder();
+        sourceBuilder.query(QueryBuilders.matchAllQuery());
+        request.source(sourceBuilder);
+        return simpleSearchClient.search(request,UserDO.class);
     }
+
 }

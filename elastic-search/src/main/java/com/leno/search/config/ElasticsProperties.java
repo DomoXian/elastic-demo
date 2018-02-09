@@ -23,5 +23,10 @@ public class ElasticsProperties {
      */
     private String clusterNodes;
 
+    /**
+     * 端口号
+     */
+    private int port = 9200;
+
 
 }

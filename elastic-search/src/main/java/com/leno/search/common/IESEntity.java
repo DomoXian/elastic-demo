@@ -1,4 +1,4 @@
-package com.leno.search.base;
+package com.leno.search.common;
 
 /**
  * <p>搜索实体类</p>
@@ -9,8 +9,6 @@ package com.leno.search.base;
 public interface IESEntity {
 
     String getIndex();
-
-    String getType();
 
     String getId();
 

@@ -1,6 +1,5 @@
 package com.leno.search.entity;
 
-import com.leno.search.base.IESEntity;
 import lombok.Data;
 
 import java.util.Date;
@@ -12,8 +11,10 @@ import java.util.Date;
  * @date: 2018年01月31日
  */
 @Data
-public class UserESEntity implements IESEntity {
+public class UserESEntity extends BaseEntity {
 
+
+    private static final long serialVersionUID = -750071967756810272L;
     /**
      * 主键
      */
@@ -42,19 +43,4 @@ public class UserESEntity implements IESEntity {
     private Date gmtCreate;
 
     private Date gmtModified;
-
-    @Override
-    public String getIndex() {
-        return "moyu_db";
-    }
-
-    @Override
-    public String getType() {
-        return "user";
-    }
-
-    @Override
-    public String getId() {
-        return String.valueOf(this.userId);
-    }
 }

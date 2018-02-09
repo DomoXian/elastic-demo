@@ -1,4 +1,4 @@
-package com.leno.search.base;
+package com.leno.search.common;
 
 /**
  * <p>TODO</p>
@@ -14,11 +14,6 @@ public class SimpleESEntity implements IESEntity {
     private String index;
 
     /**
-     * 类型
-     */
-    private String type;
-
-    /**
      * id
      */
     private String id;
@@ -26,9 +21,12 @@ public class SimpleESEntity implements IESEntity {
     public SimpleESEntity() {
     }
 
-    public SimpleESEntity(String index, String type, String id) {
+    public SimpleESEntity(String index) {
         this.index = index;
-        this.type = type;
+    }
+
+    public SimpleESEntity(String index, String id) {
+        this.index = index;
         this.id = id;
     }
 
@@ -38,21 +36,12 @@ public class SimpleESEntity implements IESEntity {
     }
 
     @Override
-    public String getType() {
-        return this.type;
-    }
-
-    @Override
     public String getId() {
         return this.id;
     }
 
     public void setIndex(String index) {
         this.index = index;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 
     public void setId(String id) {
