@@ -2,6 +2,7 @@ package com.leno.controller;
 
 import com.leno.model.request.UserRequest;
 import com.leno.service.UserService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @RequestMapping("/user")
+@Slf4j
 public class UserController {
 
     @Autowired
@@ -37,6 +39,18 @@ public class UserController {
     @PostMapping("/searchMatchPhrase.json")
     public Object searchMatchPhrase(@RequestParam String userName) {
         return userService.searchMatchPhraseByName(userName);
+    }
+
+    @GetMapping("/test")
+    public Object log() {
+        new Thread(() -> {
+            for (int i = 0; i < 100000; i++) {
+                log.info("info测试日志{}s", System.currentTimeMillis());
+                log.warn("warn测试日志{}s", System.currentTimeMillis());
+                log.error("error测试日志{}s", System.currentTimeMillis());
+            }
+        }).start();
+        return "测试日志";
     }
 
 
