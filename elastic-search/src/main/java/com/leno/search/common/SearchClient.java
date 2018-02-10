@@ -12,7 +12,7 @@ import java.util.List;
  * @author: XianGuo
  * @date: 2018年01月31日
  */
-public interface IElasticSearchClient {
+public interface SearchClient {
 
     /**
      * 搜索结果

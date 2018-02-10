@@ -21,4 +21,6 @@ public class UserSearchRepositoryImpl implements UserSearchRepository {
     public List<UserESEntity> searchUserByRequest(CommonSearchRequest request) {
         return null;
     }
+
+
 }

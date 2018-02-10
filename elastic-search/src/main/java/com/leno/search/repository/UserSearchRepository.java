@@ -13,16 +13,10 @@ import java.util.List;
  */
 public interface UserSearchRepository {
 
-    /**
-     * 全文搜索(match)
-     */
 
     /**
-     * 紧邻搜索（match_phrase）
-     */
-
-    /**
-     * 精确搜索（term）
+     * 搜索
      */
     List<UserESEntity> searchUserByRequest(CommonSearchRequest request);
+
 }

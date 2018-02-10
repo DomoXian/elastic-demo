@@ -18,9 +18,9 @@ import java.util.List;
  * @author: XianGuo
  * @date: 2018年01月31日
  */
-@Service
+@Service("searchClient")
 @Slf4j
-public class SimpleSearchClient implements IElasticSearchClient {
+public class EsSearchClient implements SearchClient {
 
     @Autowired
     private RestHighLevelClient client;

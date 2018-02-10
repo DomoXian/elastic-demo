@@ -12,8 +12,12 @@ public class CommonSearchRequest {
 
     private List<SearchWord> searchWords;
 
-
-    private void addSearchWord(String keyword,int queryType){
+    /**
+     * 添加搜索关键字
+     * @param keyword
+     * @param esQueryType
+     */
+    private void addSearchWord(String keyword,int esQueryType){
         SearchWord searchWord = new SearchWord();
     }
 }
