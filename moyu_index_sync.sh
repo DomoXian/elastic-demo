@@ -1,3 +1,3 @@
 # !bin/bash
-ls
+pwd
 logstash -f elastic-search/src/main/resources/conf/jdbc.conf &
