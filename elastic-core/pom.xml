@@ -17,16 +17,6 @@
     <dependencies>
 
         <dependency>
-            <groupId>com.leno</groupId>
-            <artifactId>elastic-dal</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.leno</groupId>
-            <artifactId>elastic-search</artifactId>
-        </dependency>
-
-        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
@@ -45,6 +35,16 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        
+        <dependency>
+            <groupId>com.leno</groupId>
+            <artifactId>elastic-dal</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.leno</groupId>
+            <artifactId>elastic-search</artifactId>
         </dependency>
 
         <dependency>
